@@ -1,0 +1,167 @@
+\documentclass[11pt,a4paper]{memoir}
+\usepackage[danish]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber, sortlocale=da_DK, sortcites]{biblatex}
+\urlstyle{sf}
+\usepackage[utf8]{inputenc}
+\usepackage{caption} %kontroller "caption" bedre
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\newsubfloat{figure}% Allow subfloats in figure environment
+\usepackage{nameref} %referer til titler
+\usepackage{geometry}
+\usepackage{arrayjob} %lav arrays af variabler
+\usepackage{placeins} %hold floats indenfor barrierer
+\usepackage{eurosym} %skriv et EURO-tegn
+\usepackage{multirow} %definer multi-rækker/ -søjler i tabeller
+\usepackage{paralist} %Udvidede liste-funktioner
+\usepackage{import} %erstatter \include{} og \input{}
+\usepackage{xcolor} % sæt farver på tekst
+\usepackage{lipsum} %autogenerer tekst til testbrug
+
+\addbibresource{mini.bib}
+
+\begin{document}
+\chapter{Initialisering}
+
+\section{Pythagoras lov}
+Den pythagoræiske læresætning siger, at i alle retvinklede trekanter er summen af kateternes kvadrat lig hypotenusens kvadrat. Sætningen kan også udtrykkes som ligning, idet kateternes længder benævnes a og b og hypotenusens benævnes c, ligesom det er vist i figur \ref{fig:pythagoras}:
+
+\begin{figure}
+\begin{tikzpicture}[scale=1]
+\draw (0,0) -- node[midway, below]{$a$} (4,0) -- node[midway, right]{$b$} (4,5) -- node[midway, above left]{$c$} (0,0); % tegn en retvinklet trekant
+\end{tikzpicture}
+\caption{Pythagoras lov gælder for retvinklede trekanter}
+\label{fig:pythagoras}
+\end{figure}
+
+\begin{equation}
+\begin{aligned}
+a^2 + b^2 &= c^2
+\end{aligned}
+\end{equation}
+
+Det er derfor muligt at beregne en sidelængde i en retvinklet trekant, når de andre sidelængder er kendte. For en retvinklet trekant i planet findes hypotenusen $c$ ved at tage kvadratroden af summen af $a$ og $b$'s kvadrater, altså
+
+\begin{equation}
+\begin{aligned}
+c &= \sqrt{a^2 + b^2}
+\end{aligned}
+\end{equation}
+
+\FloatBarrier
+\subsection{Pythagoras lov i flere dimensioner}
+Haves en vektor $\vec{c}$ i flere dimensioner med sidelængderne (x, y, z, ..)i et fler-dimensionelt kartesisk koordinatsystem gælder:
+
+\begin{equation}
+\begin{aligned}
+x^2 + y^2 + z^2 + .. &= c^2
+\end{aligned}
+\end{equation}
+
+Tilsvarende findes f.eks. længden af en vektor $\vec{c}$  med akserne (x, y, z, ..) som:
+
+\begin{equation}
+\begin{aligned}
+c &= \sqrt{x^2 + y^2 + z^2 + ..}
+\end{aligned}
+\end{equation}
+
+\FloatBarrier
+\section{Rumtiden}
+Einstein hævdede at tid og rum var det samme 4-dimensionelle rum. Dette rum kaldes rumtiden. Rumtiden beskrives som havende de vinkelrette akser $(t, x, y, z)$, hvor $(x, y, z)$ er rummet, mens $t = ct'$ er tidsafstanden angivet i meter, hvor $c$ er lysets hastighed i vacum og $t'$ er den tid i sekunder, som et objekt i rumtiden selv oplever.
+\par
+Desuden synes der at være en skjult antagelse om, at alt i universet går i takt lige langt ud i rumtiden. Alt påstås at bevæge sig i rumtiden med lysets hastighed.
+
+\subsection{Rumtiden i et plan}
+Geometrien kan bedst ses, hvis vi betragter et todimensionelt system med $t = ct'\;[m]$ ud ad den x-aksen og $x\;[m]$ ud ad y-aksen. Et objekt $A_1$, der ikke bevæger sig ud ad x-aksen vil kun bevæge sig ud ad t-aksen. Når objektet har bevæget sig $c$ meter ud i rumtiden vil objektet opleve, at det har stået stille i rummet i ét sekund.
+\par
+Lyset påstås at bevæge sig med en hastighed $c$ på $299.792.458\;[m/s]$. Hvis et objekt $A_1$ står stille\footnote{eller i hvert fald ikke accelererer} i det tomme rum over en periode  $t'_1$ på 1 sekund, svarer det altså til at $A_1$ bevæger sig $299.792.458$ meter ud af $t$-aksen i rumtiden som vist i figur \ref{fig:A_1}. Et givet andet objekt $A_2$ vil samtidig have bevæget sig lige så langt i rumtiden selvom dette andet objekt $A_2$ sagtens vil kunne opleve eller måle tiden $t'_2$ som forskellig fra $A_1$'s måling af sin tid $t'_1$.
+\par
+Når objekt $A_1$ har bevæget sig $l_1 = \sqrt{t_1^2 + x_1^2}$ meter ud i rumtiden, vil et givet andet objekt $A_2$ have bevæget sig lige så langt ud i rumtiden. Ud fra pythagoras ved vi derfor, at:
+
+\begin{equation}
+\begin{aligned}
+l^2 &= |\vec{a_1}|^2 = |\vec{a_2}|^2 = t_1^2 + x_1^2 = t_2^2 + x_2^2
+\end{aligned}
+\end{equation}
+
+\begin{figure}
+\begin{tikzpicture}
+\path (0,0)+(6,0) coordinate (t); %definer t-aksen  
+\path (0,0)+(0,6) coordinate (x); %definer x-aksen 
+\draw[->] (0,0) -- (t); %tegn t-aksen
+\draw[->] (0,0) -- (x); %tegn x-aksen
+\node[right] at (t) {$t= ct'\;[m]$}; % sæt label på x- og y-aksen
+\node[above] at (x) {$x\;[m]$};
+
+\path (1,1) coordinate (O)        ; %definer nulpunktet
+
+\path (O)+(5:4cm) coordinate (A1); %definer objekt A1  
+\path (O)+(70:4cm) coordinate (A2); %definer objekt A2 
+
+\node[below] at (O) {$O$}                    ;% sæt label på startpunktet O
+\draw[->] (O) -- node[midway, below]{$\vec{a_1}$} (A1);% tegn vektor a1
+\node[right] at (A1) {$A_1$}                    ;% afmærk punkt A1
+\draw[->] (O) -- node[midway, right]{$\vec{a_2}$} (A2);% tegn vektor a2
+\node[above] at (A2) {$A_2$}                    ;% afmærk punkt A2
+\draw [dashed, ->] (A1) arc (5:75:4cm)         ;% marker, at l1=l2
+
+\end{tikzpicture}
+\caption{Et objekt $A_1$, der står stille i rummet, flytter sig ud ad ct-aksen i rumtiden}
+\label{fig:A_1}
+\end{figure}
+
+
+\begin{figure}
+\begin{tikzpicture}[scale=1]
+\path(35:4cm) coordinate (A1);
+\path(70:4cm) coordinate (A2);
+\draw (0,0) -- ++ (A1);
+\draw (0,0) -- ++ (A2);
+
+\draw [dashed, ->] (A1) arc (35:72:4cm);
+
+\end{tikzpicture}
+\caption{test1}
+\label{fig:test1}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+\FloatBarrier
+\section{objekternes selvoplevede hastighed}
+\begin{equation}
+\begin{aligned}
+l_i^2&=a_i^2+b_i^2+c_i^2+d_i^2\\
+&\Updownarrow \\
+l_i&=\sqrt{a_i^2+b_i^2+c_i^2+d_i^2}
+\end{aligned}
+\end{equation}
+
+\begin{figure}
+\begin{tikzpicture}[scale=2]
+\draw[<->] (5,0) -- (0,0) -- (0,5); %tegn koordinat-akser
+\node[below right] at (4,0) {$ct\;[m]$}; % sæt label på x- og y-aksen
+\node[above left] at (0,5) {$x\;[m]$};
+\draw[->] (1,1) -- (3,4); % tegn en pil, default enhed er "cm"
+\draw[->] (1,2) -- (1,5); % tegn en pil, default enhed er "cm"
+\draw[->] (2,2) -- (4,2); % tegn en pil, default enhed er "cm"
+\end{tikzpicture}
+\caption{her tegnes en linie}
+\label{fig:linie}
+\end{figure}
+
+\end{document}
