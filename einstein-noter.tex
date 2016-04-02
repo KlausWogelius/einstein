@@ -33,8 +33,14 @@ Den pythagoræiske læresætning siger, at i alle retvinklede trekanter er summe
 
 \begin{figure}
 \begin{tikzpicture}[scale=1]
-\draw (0,0) -- node[midway, below]{$a$} (4,0) -- node[midway, right]{$b$} (4,5) -- node[midway, above left]{$c$} (0,0); % tegn en retvinklet trekant
-\end{tikzpicture}
+\path ( 0,0) coordinate(B);
+\path (10,0) coordinate(C);
+\path (10,4) coordinate(A);
+\draw (B) -- node[midway, below      ]{$a$} (C)
+          -- node[midway, right      ]{$b$} (A)
+          -- node[midway, above left ]{$c$} (B);
+\draw (9,0) -- (9,1) -- (10,1);
+\end{tikzpicture}[scale=1]
 \caption{Pythagoras lov gælder for retvinklede trekanter}
 \label{fig:pythagoras}
 \end{figure}
@@ -73,12 +79,10 @@ c &= \sqrt{x^2 + y^2 + z^2 + ..}
 
 \FloatBarrier
 
-
-
 \section{Rumtiden}
-Einstein hævdede at tid og rum var det samme 4-dimensionelle rum. Dette rum kaldes rumtiden. Rumtiden beskrives som havende de vinkelrette akser $(t, x, y, z)$, hvor $(x, y, z)$ er rummet, mens $t = ct'$ er tidsafstanden angivet i meter, hvor $c$ er lysets hastighed i vacum og $t'$ er den tid i sekunder, som et objekt i rumtiden selv oplever.
+Einstein hævdede at tid og rum er det samme 4-dimensionelle rum. Dette rum kaldes rumtiden. Rumtiden kan beskrives som havende de vinkelrette akser $(t, x, y, z)$, hvor $(x, y, z)$ er rummet, mens $t = ct'$ er tidsafstanden angivet i meter.  lysets hastighed i vacum betegnes med konstanten $c$, mens $t'$ er den tid i sekunder, som et objekt i rumtiden selv oplever.
 \par
-Desuden synes der at være en skjult antagelse om, at alt i universet går i takt lige langt ud i rumtiden. Alt påstås at bevæge sig i rumtiden med lysets hastighed.
+Der synes at være en skjult antagelse om, at alt i universet går i takt lige langt ud i rumtiden. Alt påstås at bevæge sig i rumtiden med lysets hastighed.
 
 \subsection{Rumtiden i et plan}
 Geometrien kan bedst ses, hvis vi betragter et todimensionelt system med $t = ct'\;[m]$ ud ad den x-aksen og $x\;[m]$ ud ad y-aksen. Et objekt $A_1$, der ikke bevæger sig ud ad x-aksen vil kun bevæge sig ud ad t-aksen. Når objektet har bevæget sig $c$ meter ud i rumtiden vil objektet opleve, at det har stået stille i rummet i ét sekund.
@@ -106,7 +110,7 @@ Hvis $A_1$ betragter $A_2$ vil $A_1$ derfor opleve, at $A_2$ bevæger sig med ha
 
 \path (1,1) coordinate (O)        ; %definer nulpunktet
 
-\path (O)+(5:4cm) coordinate (A1); %definer objekt A1  
+\path (O)+(0:4cm) coordinate (A1); %definer objekt A1  
 \path (O)+(70:4cm) coordinate (A2); %definer objekt A2 
 
 \node[below] at (O) {$O$}                    ;% sæt label på startpunktet O
@@ -114,7 +118,7 @@ Hvis $A_1$ betragter $A_2$ vil $A_1$ derfor opleve, at $A_2$ bevæger sig med ha
 \node[right] at (A1) {$A_1$}                    ;% afmærk punkt A1
 \draw[->] (O) -- node[midway, right]{$\vec{a_2}$} (A2);% tegn vektor a2
 \node[above] at (A2) {$A_2$}                    ;% afmærk punkt A2
-\draw [dashed, ->] (A1) arc (5:75:4cm)         ;% marker, at l1=l2
+\draw [dashed, ->] (2,1) arc (0:80:1cm)         ;% marker, at l1=l2
 
 \end{tikzpicture}
 \caption{Et objekt $A_1$, der står stille i rummet, flytter sig ud ad ct-aksen i rumtiden}
